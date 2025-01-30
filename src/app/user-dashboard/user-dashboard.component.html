@@ -1,0 +1,101 @@
+<div class="container-fluid p-5">
+  <!-- User Information Card -->
+  <mat-card class="user-card mat-elevation-z3">
+    <div class="user-icon">
+      <i class="fas fa-user-circle" id="img-icon"></i>
+    </div>
+
+    <mat-card-header class="user-header">
+      <mat-card-title>Welcome, {{ user?.fullName }}!</mat-card-title>
+      <mat-card-subtitle>{{ user?.email }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="detail">
+        <mat-icon color="accent">badge</mat-icon>
+        <p><strong>Role:</strong> {{ user?.role }}</p>
+      </div>
+      <div class="detail">
+        <mat-icon color="accent">calendar_today</mat-icon>
+        <p><strong>Date of Birth:</strong> {{ user?.dob }}</p>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="toggleEditMode()">Edit Profile</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <!-- Edit User Details -->
+  <mat-card *ngIf="editMode" class="edit-user-card mat-elevation-z3 mt-4">
+    <div class="user-icon">
+      <i class="fas fa-edit" id="img-icon"></i>
+    </div>
+    <h3>Edit Profile </h3>
+    <form [formGroup]="editForm" (ngSubmit)="updateUser()">
+      <div class="form-row" fxLayout="row" fxLayoutGap="16px">
+        <mat-form-field fxFlex="30" appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="fullName" required />
+        </mat-form-field>
+
+        <mat-form-field fxFlex="30" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" required />
+        </mat-form-field>
+
+        <mat-form-field fxFlex="30" appearance="outline">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput formControlName="dob" type="date" required />
+        </mat-form-field>
+      </div>
+
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="editForm.invalid" class="me-2">Save</button>
+        <button mat-raised-button color="warn" type="button" (click)="toggleEditMode()">Cancel</button>
+      </div>
+    </form>
+  </mat-card>
+
+  <!-- Enrolled Courses Card -->
+  <mat-card class="user-card mat-elevation-z3 mt-4">
+    <div class="user-icon">
+      <i class="fas fa-book-reader course-icon" id="img-icon"></i>
+    </div>
+    <mat-card-content>
+      <h3>Your Enrolled Courses</h3>
+      <div *ngIf="enrolledCourses.length; else noCourses">
+        <div *ngFor="let course of enrolledCourses" class="course-item">
+          <div class="course-info">
+            <div class="detail">
+              <mat-icon color="warn">star</mat-icon>
+              <p>{{ course.courseTitle }} </p>
+            </div>
+            <button mat-raised-button color="warn" class="remove-btn align-right" (click)="openDialog(course.id)">
+            <!-- (click)="removeEnrollment(course.id)"> -->
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+      <ng-template #noCourses>
+        <p>You have not enrolled in any courses yet.</p>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+
+
+    <!-- Confirmation Dialog -->
+    <div *ngIf="isDialogOpen" class="dialog-overlay">
+      <div class="dialog-content">
+        <h2>Confirm Deletion</h2>
+        <p>Are you sure you want to delete this course?</p>
+        <div class="dialog-actions">
+          <button mat-raised-button color="warn" (click)="confirmDeletion()">Delete</button>
+          <button mat-raised-button color="primary" (click)="closeDialog()">Cancel</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+

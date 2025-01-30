@@ -1,0 +1,112 @@
+<div class="container-fluid">
+    <h2>Faculty Dashboard</h2>
+
+    <div class="add-course-container">
+        <h3>Add a Course</h3>
+        <form class="add-course-form" (ngSubmit)="addCourse()">
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Course Title</mat-label>
+                <input matInput placeholder="Enter Course Title" [(ngModel)]="newCourse.title" name="title" required />
+            </mat-form-field>
+
+            <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Author</mat-label>
+                <input matInput placeholder="Enter Author Name" [(ngModel)]="newCourse.author" name="author" required />
+            </mat-form-field>          
+         
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Rating</mat-label>
+                <input matInput placeholder="Enter Course Rating" type="number" [(ngModel)]="newCourse.rating"
+                    name="rating" required />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Price</mat-label>
+                <input matInput placeholder="Enter Course Price" type="number" [(ngModel)]="newCourse.price"
+                    name="price" required />
+            </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Image Path</mat-label>
+                <input matInput placeholder="Will be generated automatically on image upload" [(ngModel)]="newCourse.image" name="image" required />
+            </mat-form-field>
+
+            <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>                    
+
+            <div class="button-container">
+                <button mat-raised-button color="primary" type="submit">Add Course</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div >
+        <h3>Course List</h3>
+        <!-- <mat-grid-list cols="3" rowHeight="410px" gutterSize="16px"> -->
+
+            <div class="card-container">
+            <!-- <mat-grid-tile *ngFor="let course of courses"> -->
+                <mat-card *ngFor="let course of courses" class="course-card">
+                    <img mat-card-image [src]="course.image"  alt="{{ course.title }}" />
+
+                    <mat-card-header>
+                        <mat-card-title>{{ course.title }}</mat-card-title>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <p><strong>Author:</strong>{{ course.author }}</p>
+
+                        <p><strong>Rating:</strong> {{ course.rating }}</p>
+                    
+                        <p><strong>Price:</strong> ${{ course.price }}</p>
+                    </mat-card-content>
+                    <mat-card-actions class="actions-right">
+                        <button mat-raised-button color="primary" (click)="editCourse(course)"  style="margin-right: 10px;">Edit</button>
+                        <button mat-raised-button color="warn" (click)="deleteCourse(course.id)">Delete</button>
+                    </mat-card-actions>
+                </mat-card>
+                </div>
+            <!-- </mat-grid-tile> -->
+        <!-- </mat-grid-list> -->
+    </div>
+
+    <div class="add-course-container mt-3" #editCourseSection *ngIf="selectedCourse">
+        <h3>Edit Course</h3>
+        <form class="add-course-form">
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Course Title</mat-label>
+                <input matInput [(ngModel)]="selectedCourse.title" name="editTitle" required />
+            </mat-form-field>
+
+            <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Author</mat-label>
+                <input matInput [(ngModel)]="selectedCourse.author" name="editAuthor" required />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Rating</mat-label>
+                <input matInput type="number" [(ngModel)]="selectedCourse.rating" name="editRating" required />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Price</mat-label>
+                <input matInput type="number" [(ngModel)]="selectedCourse.price" name="editPrice" required />
+            </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Image Path</mat-label>
+                <input matInput [(ngModel)]="selectedCourse.image" name="editImage" required />
+            </mat-form-field>
+
+            <input type="file" class="file-input" (change)="onFileEdit($event)" #fileUpload>
+       
+            <div class="button-container">
+                <button mat-raised-button color="primary" (click)="updateCourse()">Update Course</button>
+            </div>
+        </form>
+    </div>
+</div>

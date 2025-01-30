@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <!-- [style.backgroundImage]="'url(' + backgroundImage + ')'" -->
+<div class="faq-container">
+    <h2 class="faq-title">FAQ</h2>
+    <p class="faq-subtitle">Let the professionalism lead you to the highest top of your goals.</p>
+  
+    <cdk-accordion class="mat-accordion">
+      <ng-container *ngFor="let faq of faqs$; let index = index">
+        <cdk-accordion-item #accordionItem="cdkAccordionItem" class="accordion-item">
+          <button
+            class="mat-panel-title"
+            (click)="accordionItem.toggle()"
+            tabindex="0"
+            [attr.id]="'accordion-header-' + index"
+            [attr.aria-expanded]="accordionItem.expanded"
+            [attr.aria-controls]="'accordion-body-' + index">
+            {{ faq.question }}
+            <span class="accordion-item-description">
+              <mat-icon>{{ accordionItem.expanded ? 'expand_less' : 'expand_more' }}</mat-icon>
+            </span>
+          </button>
+  
+          <div
+            class="accordion-item-body"
+            role="region"
+            *ngIf="accordionItem.expanded"
+            [attr.id]="'accordion-body-' + index"
+            [attr.aria-labelledby]="'accordion-header-' + index">
+            {{ faq.answer }}
+          </div>
+        </cdk-accordion-item>
+      </ng-container>
+    </cdk-accordion>
+  </div>
+  </div>
+ 

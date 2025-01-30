@@ -1,0 +1,106 @@
+.login-container {
+    background-color: #f7f9fa;
+    /* Light grey background */
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* White background for the form */
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    /* Rounded corners */
+}
+
+h3 {
+    color: #1da818;
+
+}
+
+a {
+    color: #1da818;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+
+/* 
+
+.form-control {
+    border-radius: 4px;
+    padding: 10px;
+} */
+
+
+input {
+    padding: 10px;
+    border:  #777676;
+    border-radius: 10px;
+    background-color: transparent;
+
+}
+
+/* Adjust mat-form-field container to match form style */
+mat-form-field {
+    display: block;
+    /* Ensures it takes full width of the parent container */
+    width: 100%;
+    /* Matches the width of other inputs */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Matches form background */
+    /* Rounded corners */
+    padding: 0;
+    margin-bottom: 0;
+}
+
+/* Style matInput to match other inputs */
+/* mat-form-field .mat-input-element {
+    border-radius: 10px;
+    padding: 10px;
+    transition: border-color 0.3s ease;
+    color: #333;
+    background-color: transparent;
+} */
+
+/* Focused input styles */
+mat-form-field .mat-input-element:focus {
+    border-color: rgb(29, 168, 24);
+    box-shadow: 0 0 4px rgb(29, 168, 24);
+}
+
+/* Style mat-icon-button within the mat-form-field */
+mat-icon-button .mat-icon-button {
+    border-radius: 50%;
+    /* Circular button */
+    color: #777676;
+    /* Match input placeholder color */
+    transition: color 0.3s ease;
+}
+
+mat-icon-button .mat-icon-button:hover {
+    color: rgb(29, 168, 24);
+    /* Green on hover for better interactivity */
+}
+
+/* Mat-form-field label styling */
+mat-form-field .mat-form-field-label {
+    font-weight: bold;
+    /* Match other labels */
+    color: #333;
+    /* Consistent label color */
+}
+
+/* Mat-icon styling for visibility toggle */
+mat-icon {
+    font-size: 20px;
+    /* Slightly larger for visibility */
+}
+
+div {
+    padding: 0;
+
+}

@@ -1,0 +1,142 @@
+<div class="admin-dashboard ">
+
+    <nav id="navbar-example2" class="navbar px-3 ">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link btn-effect" routerLink="/admin-dashboard" fragment="add-user-section">Add User</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-effect" routerLink="/admin-dashboard" fragment="edit-delete-user-section">Edit/Delete
+                    User</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-effect" routerLink="/admin-dashboard" fragment="subscriber-data-section">View Subscriber
+                    Data</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-effect" routerLink="/admin-dashboard" fragment="contact-details-section">View Contact
+                    Details</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="add-user-section">
+        <app-signup [title]="'Add user details'" [message]="'Add user'"></app-signup>
+    </section>
+
+    <section id="edit-delete-user-section">
+        <h3 class="text-center">Edit/Delete User</h3>
+        <div class="user-grid mt-5">
+            <mat-card *ngFor="let user of users" class="user-card mat-elevation-z3">
+                <!-- User Icon -->
+                <div class="user-icon">
+                    <i class="fas fa-user-circle" id="img-icon"></i>
+                </div>
+
+                <!-- Header -->
+                <mat-card-header>
+                    <mat-card-title>{{ user.fullName }}</mat-card-title>
+                    <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+                </mat-card-header>
+
+                <!-- User Details -->
+                <mat-card-content>
+                    <div class="detail">
+                        <mat-icon color="accent">calendar_today</mat-icon>
+                        <p><strong>Date of Birth:</strong> {{ user.dob }}</p>
+                    </div>
+                    <div class="detail">
+                        <mat-icon color="accent">badge</mat-icon>
+                        <p><strong>Role:</strong> {{ user.role }}</p>
+                    </div>
+                </mat-card-content>
+
+                <!-- Actions -->
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" (click)="editUser(user)">                        
+                        <a class="nav-link" routerLink="/admin-dashboard" fragment="edit-user-section"> Edit</a>
+                       </button>
+                    <button mat-raised-button color="danger" (click)="deleteUser(user.id)">Delete</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+        <mat-card *ngIf="selectedUser" class="edit-user-card mat-elevation-z3" id ="edit-user-section">
+            <h3> Edit User <mat-icon color="accent">edit</mat-icon></h3>
+            <form (ngSubmit)="updateUser()">
+                <!-- Two fields in one row -->
+                <div class="form-row" fxLayout="row" fxLayoutGap="16px">
+                    <mat-form-field fxFlex="25" appearance="outline">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput [(ngModel)]="selectedUser.fullName" name="fullName" required>
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex="25" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput [(ngModel)]="selectedUser.email" name="email" required>
+                    </mat-form-field>
+
+                    <!-- Two fields in one row -->
+                    <mat-form-field fxFlex="25" appearance="outline">
+                        <mat-label>Date of Birth</mat-label>
+                        <input matInput [(ngModel)]="selectedUser.dob" name="dob" type="date" required>
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex="25" appearance="outline">
+                        <mat-label>Role</mat-label>
+                        <mat-select [(ngModel)]="selectedUser.role" name="role" required>
+                            <mat-option value="admin">Admin</mat-option>
+                            <mat-option value="student">Student</mat-option>
+                            <mat-option value="teacher">Teacher</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <button mat-raised-button color="primary" type="submit">Update</button>
+            </form>
+        </mat-card>
+    </section>
+
+
+    <section id="subscriber-data-section">
+        <h3 class="text-center mt-4">View Subscriber Data</h3>
+        <table class="table table-striped table-bordered table-hover green-theme">
+          <thead class="table-success">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let subscriber of subscribers">
+              <td>{{ subscriber.name }}</td>
+              <td>{{ subscriber.email }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+      <!-- Contact Details Section -->
+      <section id="contact-details-section">
+        <h3 class="text-center">View Contact Details</h3>
+        <table class="table table-striped table-bordered table-hover green-theme">
+          <thead class="table-success">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Subject</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contact of contacts">
+              <td>{{ contact.name }}</td>
+              <td>{{ contact.email }}</td>
+              <td>{{ contact.subject }}</td>
+              <td>{{ contact.message }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section> 
+
+</div>

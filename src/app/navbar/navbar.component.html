@@ -1,0 +1,216 @@
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark px-5">
+  <div class="container-fluid">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img [src]="logo" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item me-3">
+          <a class="nav-link d-flex align-items-center" routerLink="home" routerLinkActive="active" aria-current="page">
+            <mat-icon class="me-2">home</mat-icon> Home
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <mat-icon class="me-2">book</mat-icon> Courses
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item d-flex align-items-center" routerLink="popularcourse">
+                <mat-icon class="me-2">star</mat-icon> Popular courses
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" routerLink="all-courses">
+                <mat-icon class="me-2">list</mat-icon> All Courses
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item me-3">
+          <a class="nav-link d-flex align-items-center" routerLink="faq" routerLinkActive="active">
+            <mat-icon class="me-2">help</mat-icon> FAQ
+          </a>
+        </li>
+        <li class="nav-item me-3">
+          <a class="nav-link d-flex align-items-center" routerLink="contact" routerLinkActive="active">
+            <mat-icon class="me-2">contact_mail</mat-icon> Contact
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link d-flex align-items-center" routerLink="login" routerLinkActive="active">
+            <mat-icon class="me-2">login</mat-icon> Login
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link d-flex align-items-center" routerLink="signup" routerLinkActive="active">
+            <mat-icon class="me-2">person_add</mat-icon> Signup
+          </a>
+        </li>
+        
+        <li class="nav-item" *ngIf="authService.isAuthenticated() && userRole === 'student'">
+          <a class="nav-link d-flex align-items-center" routerLink="user-dashboard" routerLinkActive="active">
+            <mat-icon class="me-2">dashboard</mat-icon> Profile
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isAuthenticated() && userRole === 'teacher'">
+          <a class="nav-link d-flex align-items-center" routerLink="faculty-dashboard" routerLinkActive="active">
+            <mat-icon class="me-2">dashboard</mat-icon> Dashboard
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isAuthenticated() && userRole === 'admin'">
+          <a class="nav-link d-flex align-items-center" routerLink="admin-dashboard" routerLinkActive="active">
+            <mat-icon class="me-2">dashboard</mat-icon> Admin
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isAuthenticated()">
+          <a class="nav-link d-flex align-items-center" (click)="logout()">
+            <mat-icon class="me-2">logout</mat-icon> Logout
+          </a>
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<!-- <nav class="navbar navbar-dark navbar-expand-lg bg-dark px-5">
+  <div class="container-fluid">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img [src]="logo" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item me-3">
+          <a class="nav-link d-flex align-items-center" routerLink="home" routerLinkActive="active" aria-current="page">
+            <mat-icon class="me-2">home</mat-icon> Home
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <mat-icon class="me-2">book</mat-icon> Courses
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item d-flex align-items-center" routerLink="popularcourse">
+                <mat-icon class="me-2">star</mat-icon> Popular courses
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" routerLink="faq">
+                <mat-icon class="me-2">list</mat-icon> All Courses
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item me-3">
+          <a class="nav-link d-flex align-items-center" routerLink="faq" routerLinkActive="active">
+            <mat-icon class="me-2">help</mat-icon> FAQ
+          </a>
+        </li>
+        <li class="nav-item me-3">
+          <a class="nav-link d-flex align-items-center" routerLink="contact" routerLinkActive="active">
+            <mat-icon class="me-2">contact_mail</mat-icon> Contact
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link d-flex align-items-center" routerLink="login" routerLinkActive="active">
+            <mat-icon class="me-2">login</mat-icon> Login
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link d-flex align-items-center" routerLink="signup" routerLinkActive="active">
+            <mat-icon class="me-2">person_add</mat-icon> Signup
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isAuthenticated()">
+          <a class="nav-link d-flex align-items-center" (click)="logout()">
+            <mat-icon class="me-2">logout</mat-icon> Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+
+
+<!-- <nav class="navbar navbar-dark navbar-expand-lg bg-dark px-5">
+  <div class="container-fluid">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img [src]="logo" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item me-3">
+          <a class="nav-link d-flex align-items-center" routerLink="home" routerLinkActive="active" aria-current="page">
+            <mat-icon class="me-2">home</mat-icon> Home
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <mat-icon class="me-2">book</mat-icon> Courses
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item d-flex align-items-center" routerLink="popularcourse">
+                <mat-icon class="me-2">star</mat-icon> Popular courses
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" routerLink="faq">
+                <mat-icon class="me-2">list</mat-icon> All Courses
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item me-3">
+          <a class="nav-link d-flex align-items-center" routerLink="faq" routerLinkActive="active">
+            <mat-icon class="me-2">help</mat-icon> FAQ
+          </a>
+        </li>
+        <li class="nav-item me-3">
+          <a class="nav-link d-flex align-items-center" routerLink="contact" routerLinkActive="active">
+            <mat-icon class="me-2">contact_mail</mat-icon> Contact
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center" routerLink="login" routerLinkActive="active">
+            <mat-icon class="me-2">login</mat-icon> Login
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center" routerLink="signup" routerLinkActive="active">
+            <mat-icon class="me-2">person_add</mat-icon> Signup
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+ -->

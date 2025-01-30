@@ -1,0 +1,229 @@
+.admin-dashboard {
+    padding: 2rem;
+    background-color:#e4e7ec;
+    /* background-color: #f4f4f9; */
+  }
+  
+
+  h3{
+    margin-bottom: 2rem;
+    color:rgb(29, 168, 24);
+
+
+  }
+  
+  .user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .user-card {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 20px; 
+  }
+
+  #img-icon {
+    font-size: 30px;
+    background: linear-gradient(135deg, #4caf50, limegreen);
+    color: #fff;
+    padding: 20px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+  
+  .user-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e3f2fd;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: -40px auto 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-row {
+    display: flex;
+    width: 100%;
+    margin-bottom: 16px;
+  
+  }
+  mat-form-field{
+    margin-right: 15px;
+    width:275px;
+  }
+
+  mat-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  mat-card-subtitle {
+    font-size: 0.9rem;
+    color: #757575;
+  }
+  
+  .detail {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+  }
+  
+  .detail mat-icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  .detail p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333333;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .edit-user-card {
+    /* max-width: 700px; */
+    margin: 2rem auto 0;
+    padding: 2rem;
+  }
+  
+  .navbar{
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
+    background-color:#e4e7ec;
+
+  }
+
+  .nav-link{
+    color: #35aa35;
+    font-size: 16px;
+  }
+  
+
+
+
+/* General Styling for Nav Links */
+.nav-pills .nav-link {
+  font-weight: bold;
+  background-color: #fff !important;
+  color: #28a745; /* Green background */
+  border-radius: 5px;
+  margin: 0 5px; /* Space between buttons */
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  border-radius: 30px; /* Slightly rounded corners */
+
+}
+
+/* Hover and Active Effects */
+.nav-pills .nav-link:hover {
+  background-color: #218838; /* Slightly darker green on hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for a button effect */
+}
+
+.nav-pills .nav-link.active {
+  background-color: #218838; /* Highlight active link */
+  border: 2px solid #1e7e34; /* Add a border for active link */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow for active state */
+}
+
+/* Responsive Adjustments */
+.nav-pills {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-item {
+  margin-bottom: 10px;
+}
+
+/* Button Transition Effect */
+.btn-effect {
+  display: inline-block;
+  border: none; /* No border */
+  text-decoration: none; 
+  font-size: 14px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Hover and Focus Effect */
+.btn-effect:hover,
+.btn-effect:focus {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+/* Active State */
+.btn-effect:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Minimal shadow */
+}
+
+
+
+
+
+/* General Green Theme for Tables */
+.green-theme {
+  border-color: #c3e6cb;
+}
+
+.green-theme th,
+.green-theme td {
+  vertical-align: middle;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Header Styling */
+.green-theme thead th {
+  background-color: #d4edda; /* Light green background */
+  color: #155724; /* Dark green text */
+  border-color: #c3e6cb;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Alternating Row Colors */
+.green-theme tbody tr:nth-child(even) {
+  background-color: #f8fdf9; /* Soft greenish white for even rows */
+}
+
+.green-theme tbody tr:nth-child(odd) {
+  background-color: #ffffff; /* White for odd rows */
+}
+
+/* Hover Effect for Rows */
+.green-theme tbody tr:hover {
+  background-color: #e2f3e6; /* Light green on hover */
+}
+
+/* Borders for Table Cells */
+.green-theme th,
+.green-theme td {
+  border: 1px solid #c3e6cb; /* Light green borders */
+}
+
+/* Add some spacing between rows */
+.green-theme tbody tr td {
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* Table Padding */
+table {
+  margin: 20px auto;
+  width: 90%;
+  font-size: 16px;
+  border-collapse: collapse;
+  background-color: #fff; /* Ensure table has a white base */
+}

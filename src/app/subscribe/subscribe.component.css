@@ -1,0 +1,90 @@
+h2{
+    color:rgb(29, 168, 24);
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-footer {
+    display: flex;
+    margin-top: 20px;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid #777676;
+    border-radius: 50px;
+  }
+  input:focus{
+    border-color: rgb(29, 168, 24);
+    box-shadow: 0 0 4px rgb(29, 168, 24);
+}
+
+.btn-custom {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    box-sizing: border-box; 
+}
+
+.gradient-btn {
+    background: linear-gradient(to bottom, #d6cc04, #29bd04);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* .gradient-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  } */
+  
+  .gradient-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  
+.gradient-btn:disabled {
+  opacity:0.6;
+  cursor: not-allowed; /* Indicate the button is not clickable */
+  box-shadow: none; /* Remove shadow for a flat look */
+}
+  
+.btn-custom:hover {
+    opacity: 0.9;
+}
+
+#message {
+    margin-top: 20px;
+}
+

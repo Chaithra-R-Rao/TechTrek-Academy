@@ -1,0 +1,139 @@
+<div *ngIf="isModalOpen" class="modal-overlay" id="subscriptionModal">
+  <div class="modal-content">
+    <h2>Get our latest news</h2>
+    <p class="text-muted">
+      We launch new courses and offers every week and want you to be the first to know about them.
+    </p>
+
+    <form #subscribeForm="ngForm" novalidate>
+      <div class="form-group mt-3">
+        <input
+          class="form-control"
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="subscriptionData.name"
+          #name="ngModel"
+          required
+          placeholder="Enter your name"
+        />
+        <div *ngIf="name.invalid && name.touched" class="alert" style="color: red;">
+          Name is required.
+        </div>
+      </div>
+
+      <div class="form-group mt-3">
+        <input
+          class="form-control"
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="subscriptionData.email"
+          #email="ngModel"
+          required
+          email
+          placeholder="Enter your email"
+        />
+        <div *ngIf="email.invalid && email.touched" class="alert" style="color: red;">
+          <div *ngIf="email.errors?.['required']">Email is required.</div>
+          <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="gradient-btn mx-3"
+          [disabled]="!subscribeForm.form.valid"
+          (click)="subscribe(subscribeForm)"
+        >
+          Subscribe
+        </button>
+
+        <button class="btn-custom" style="background-color: grey;" (click)="closeModal()">Close</button>
+      </div>
+    </form>
+
+    <p id="message" *ngIf="message" style="color: green;">{{ message }}</p>
+  </div>
+</div>
+
+
+
+<!-- <div *ngIf="isModalOpen" class="modal-overlay" id="subscriptionModal">
+    <div class="modal-content">
+      <h2>Get our latest news</h2>
+      <p class="text-muted">We launch new courses and offers every week and want you to be the first to know about them.</p>
+  
+      <form [formGroup]="subscribeForm" novalidate>
+        <div class="form-group mt-3">
+          <input
+            class="form-control"
+            formControlName="name"
+            type="text"
+            placeholder="Enter your name"
+          />
+        </div>
+        <div
+          *ngIf="
+            subscribeForm.get('name')?.invalid &&
+            (subscribeForm.get('name')?.dirty || subscribeForm.get('name')?.touched)
+          "
+          class="alert"
+          style="color: red;"
+        >
+          <div *ngIf="subscribeForm.get('name')?.errors">
+            Name is required.
+          </div>
+        </div>
+  
+        <div class="form-group mt-3">
+          
+          <input
+            class="form-control"
+            formControlName="email"
+            type="email"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div
+          *ngIf="
+            subscribeForm.get('email')?.invalid &&
+            (subscribeForm.get('email')?.dirty || subscribeForm.get('email')?.touched)
+          "
+          class="alert "
+          style="color: red;"
+        >
+          <div *ngIf="subscribeForm.get('email')?.errors?.['required']">
+            Email is required.*
+          </div>
+          <div *ngIf="subscribeForm.get('email')?.errors?.['email']">
+            Please enter a valid email address.*
+          </div>
+        </div>
+      </form>
+  
+      <div class="modal-footer">
+        <button
+          type="button"
+          [disabled]="subscribeForm.pristine || subscribeForm.invalid"
+          class="gradient-btn mx-3"
+         
+          (click)="subscribe()"
+        >
+          Subscribe
+        </button>
+      
+        <button
+          class=" btn-custom"
+     
+          style="background-color: grey;"
+          (click)="closeModal()"
+        >
+          Close
+        </button>
+      </div>
+      <p id="message" *ngIf="message" style="color: green;">{{ message }}</p>
+    </div>
+  </div>
+   -->

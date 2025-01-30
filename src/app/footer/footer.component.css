@@ -1,0 +1,107 @@
+footer {
+    background-color: #1c1d1f;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.icon-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.icon-section div {
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+/* .icon-section */
+#img-icon {
+    font-size: 50px;
+    background: linear-gradient(135deg, #4caf50, limegreen);
+    color: #fff;
+    padding: 20px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.icon-section h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.icon-section p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #adb5bd;
+}
+
+/* Line under icons */
+.icon-section .line {
+    position: absolute;
+    /* bottom: -30px; */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background-color: limegreen;
+}
+
+.icon-section .line::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: limegreen;
+    border-radius: 50%;
+}
+
+.footer-content {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer-content h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* .footer-content */
+ ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* .footer-content  */
+ul li {
+    margin-bottom: 10px;
+}
+
+/* .footer-content  */
+ul li a {
+    text-decoration: none;
+    color: #adb5bd;
+}
+
+/* .footer-content */
+ ul li a:hover {
+    color: limegreen;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #343a40;
+    margin-top: 20px;
+}
+
+

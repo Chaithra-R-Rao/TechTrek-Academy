@@ -1,0 +1,77 @@
+.main-container {
+    background-color:#e4e7ec;
+   /* height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+   padding:15px;
+}
+
+.container {
+    width: 90%;
+    padding: 30px;
+    background: rgba(82, 81, 81, 0.7); 
+    border-radius: 15px;
+}
+
+
+h2 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+input,
+select {
+    /* width: 100%; */
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid #777676;
+    border-radius: 50px;
+}
+input:focus,select:focus{
+    border-color: rgb(29, 168, 24);
+    box-shadow: 0 0 4px rgb(29, 168, 24);
+}
+/* Change the border and outline color for the select field */
+
+
+.text-center {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.gradient-btn {
+    background: linear-gradient(to bottom, #d6cc04, #29bd04);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.gradient-btn:disabled {
+    opacity:0.6;
+    cursor: not-allowed; /* Indicate the button is not clickable */
+    box-shadow: none; /* Remove shadow for a flat look */
+  }

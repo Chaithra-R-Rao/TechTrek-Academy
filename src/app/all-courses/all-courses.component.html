@@ -1,0 +1,109 @@
+<div class="container-fluid">
+    <div class="search-container p-4">
+      <div class="row align-items-center">
+        <!-- Left Content -->
+        <div class="col-md-6 text-left content-box">
+          <h2>Search Courses Here!</h2>
+          <p>Type Course name to search the course</p>
+        </div>
+  
+        <!-- Right Search Bar -->
+        <div class="col-md-6 text-right search-box">
+          <form #searchForm="ngForm" (ngSubmit)="onSearchSubmit(searchForm.value.courseName)">
+            <p class="info-text">You can search courses anytime you wish!</p>
+  
+            <div class="input-group">
+              <input
+                type="text"
+                name="courseName"
+                class="form-control"
+                placeholder="Enter course name"
+                ngModel
+                required
+              />
+              <button type="submit" class="gradient-btn" [disabled]="!searchForm.valid">
+                SEARCH
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <hr />
+  
+    <div class="course-container">
+      <div *ngFor="let course of filteredCourses" class="course-card mat-elevation-z3">
+        <img [src]="course.image" alt="{{ course.title }}" class="course-image" />
+
+        <div class="course-details">
+          <h3>{{ course.title }}</h3>
+          <p class="course-author">
+            <mat-icon>school</mat-icon> {{ course.author }}
+          </p>
+          <div class="course-rating">
+            <mat-icon color="warn">star</mat-icon> {{ course.rating }}
+          </div>
+         
+          <div class="course-meta">
+            <span class="price">${{ course.price }}</span>
+            <button class="gradient-btn" (click)="enroll(course.title)">
+                Enroll
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <!-- course-list.component.html -->
+  <!-- <div class="course-container">
+    <div *ngFor="let course of Courses" class="course-card">
+      <img [src]="course.imageUrl" alt="Course image" />
+      <h3>{{ course.title }}</h3>
+      <p>by {{ course.author }}</p>
+      <p>Vacation Points: {{ course.vacationPoints }}</p>
+      <p>Price: ${{ course.price }}</p>
+      <p>
+        <span>Rating: {{ course.rating }}</span>
+        <span>({{ course.reviews }} reviews)</span>
+      </p>
+    </div>
+  </div> -->
+  
+  
+  
+    <!-- <p>popularcourse works!</p>
+  <div class="search-container">
+      <div class="search-box">
+        <h2>Search Courses Here!</h2>
+        <p>Type Course name to search the course</p>
+        <form #searchForm="ngForm">
+          <div class="input-group">
+            <input
+              type="text"
+              name="courseName"
+              class="form-control"
+              placeholder="Enter course name"
+              ngModel
+              required
+            />
+            <button type="submit" class="btn btn-success" [disabled]="!searchForm.valid">
+              SEARCH
+            </button>
+          </div>
+        </form>
+        <p class="info-text">You can search courses anytime you wish!</p>
+      </div>
+    </div>
+     -->
