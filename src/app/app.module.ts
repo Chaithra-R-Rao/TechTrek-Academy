@@ -39,7 +39,7 @@ import { ChartComponent } from './chart/chart.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { StoreModule } from '@ngrx/store';
 
-
+import { userReducer } from './store/reducers/user.reducer';
 
 
 @NgModule({
@@ -75,7 +75,7 @@ import { StoreModule } from '@ngrx/store';
 
     MaterialModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({ user: userReducer })
 
   ],
   providers: [

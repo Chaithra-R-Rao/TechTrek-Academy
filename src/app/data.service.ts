@@ -2,25 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 
-
 import { catchError, map, retryWhen, delay, take } from 'rxjs/operators';
-
-
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
-
-  // private openAiUrl = 'https://api.openai.com/v1/chat/completions';
-  // private openAiApiKey = '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';
-  // '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';
-
-
-
-
-
-
   
   private apiUrl = 'http://localhost:3000/user-data';
 
@@ -29,8 +17,6 @@ export class DataService {
   addUserdata(data: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, data);
   }
-
-  
 
   getUserData(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl).pipe(

@@ -4,6 +4,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../data.service';
 import { ToastrService } from 'ngx-toastr';
 
+
+import { select, Store } from '@ngrx/store';
+import { setUser } from '../store/actions/user.actions';
+import { UserState } from '../store/reducers/user.reducer';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-user-dashboard',
   standalone: false,
@@ -22,12 +28,17 @@ export class UserDashboardComponent implements OnInit {
    // Store the course ID for deletion
   private readonly userEmailKey = 'userEmail';
 
+  // user$ = this.store.select((state: { user: UserState }) => state.user); 
+  user$: Observable<UserState>;
   constructor(
     private dataService: DataService,
     private router: Router,
     private fb: FormBuilder,
-    private toastr: ToastrService
-  ) {}
+    private toastr: ToastrService,
+    private store: Store<{ user: UserState }>
+  ) {
+    this.user$ = this.store.pipe(select('user'));
+  }
 
   ngOnInit(): void {
     this.fetchUserData();
@@ -45,6 +56,9 @@ export class UserDashboardComponent implements OnInit {
           if (this.user) {
             this.initEditForm(); // Initialize the form with user data
             this.fetchEnrolledCourses(this.user.email); // Fetch courses for the logged-in user
+  
+            this.store.dispatch(setUser({ user: { fullName: this.user.fullName, email: this.user.email } }));
+     
           } else {
             this.errorMessage = 'No user data found.';
           }

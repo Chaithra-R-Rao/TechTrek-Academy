@@ -1,4 +1,5 @@
 <div class="container-fluid p-5">
+  <h1 class="mb-5">Welcome, {{ (user$ | async)?.fullName }}!</h1>
   <!-- User Information Card -->
   <mat-card class="user-card mat-elevation-z3">
     <div class="user-icon">
