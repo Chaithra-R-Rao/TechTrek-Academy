@@ -1,19 +1,27 @@
-/* Minimal custom styles */
-
-
 .container {
-  
     color: #fff;
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    /* gap: 15px;  */
-    /* Minimal gap between content and video */
 }
 
-/* 
-video {
-    max-width: 100%;
-    border: 2px solid #fff;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-} */
+.content {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.3s ease-out;
+}
+
+.content.animate {
+    animation: moveToCenter 1.5s ease-in-out forwards;
+}
+
+@keyframes moveToCenter {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

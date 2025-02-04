@@ -34,7 +34,7 @@ export class LoginComponent {
       this.dataService.getUserData().pipe(
         map(users => {
           return users.find(
-            user => user.email === email && user.password === password
+            user => user.email.toLowerCase()  === email.toLowerCase()  && user.password === password
           );
         }),
         catchError(error => {
@@ -72,10 +72,10 @@ export class LoginComponent {
             this.router.navigate(['/admin-dashboard']).then(() => {
               location.href = '/admin-dashboard';
             });}
-        } else {
-                      this.toastr.error('Invalid email or password!', 'Oops!');
+        } else
+         {
+             this.toastr.error('Invalid email or password!', 'Oops!');
 
-          // alert('Invalid email or password!');
           console.error('Invalid email or password!');
 
         }

@@ -1,0 +1,49 @@
+<!-- Important -->
+<div class="container-fluid">
+<div class="quiz-container">
+  <h1 class="quiz-heading">Web Development Quiz</h1>
+
+  <div>
+    <label for="topic">Choose a topic:</label>
+    <select id="topic" [(ngModel)]="topic">
+      <option value="MEAN">MEAN</option>
+      <option value="MERN">MERN</option>
+      <option value="Cloud">Cloud</option>
+      <option value="Python">Python</option>
+      <option value="React">React</option>
+      <option value="Angular">Angular</option>
+    </select>
+  </div>
+
+  <button (click)="generateQuiz()">Generate Quiz</button>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="feedback">{{ feedback }}</div>
+
+  <form *ngIf="quizQuestions.length > 0" (ngSubmit)="submitQuiz()">
+    <div *ngFor="let question of quizQuestions; let i = index">
+      <p>{{ i + 1 }}. {{ question.question }}</p>
+      <div *ngFor="let option of question.options; let j = index">
+        <label>
+          <input type="radio" [name]="'q' + i" [(ngModel)]="userAnswers[i]" [value]="option">
+         {{ option }}
+        </label>
+      </div>
+    </div>
+
+    <button type="submit">Submit Quiz</button>
+  </form>
+
+  <div *ngIf="showResults">
+    <h2>Results:</h2>
+    <div *ngFor="let question of quizQuestions; let i = index">
+      <p>{{ i + 1 }}. {{ question.question }}</p>
+      <p>
+        Your Answer: <strong>{{ userAnswers[i] || 'Not answered' }}</strong> <br>
+         <strong style="color:green">{{ question.answer || 'Not available' }}</strong>
+      </p>
+    </div>
+  </div>
+  
+</div>
+</div>

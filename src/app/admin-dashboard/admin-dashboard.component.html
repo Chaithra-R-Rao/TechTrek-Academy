@@ -3,6 +3,10 @@
     <nav id="navbar-example2" class="navbar px-3 ">
         <ul class="nav nav-pills">
             <li class="nav-item">
+                <a class="nav-link btn-effect" routerLink="/admin-dashboard" fragment="course-chart-section">View Course Chart
+                    </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link btn-effect" routerLink="/admin-dashboard" fragment="add-user-section">Add User</a>
             </li>
             <li class="nav-item">
@@ -19,6 +23,11 @@
             </li>
         </ul>
     </nav>
+
+           <!-- Chart Component -->
+    <section id="course-chart-section">
+        <app-chart></app-chart>
+        </section>
 
     <section id="add-user-section">
         <app-signup [title]="'Add user details'" [message]="'Add user'"></app-signup>
@@ -137,6 +146,6 @@
             </tr>
           </tbody>
         </table>
-      </section> 
+      </section>     
 
 </div>

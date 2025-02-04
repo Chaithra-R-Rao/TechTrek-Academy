@@ -35,6 +35,9 @@ import { FacultyDashboardComponent } from './faculty-dashboard/faculty-dashboard
 import { RoleGuard } from './role.guard';
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ChartComponent } from './chart/chart.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { StoreModule } from '@ngrx/store';
 
 
 
@@ -60,6 +63,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     FacultyDashboardComponent,
     AllCoursesComponent,
     AdminDashboardComponent,
+    ChartComponent,
+    QuizComponent,
    
   ],
   imports: [
@@ -69,7 +74,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     ReactiveFormsModule,
 
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({}, {})
 
   ],
   providers: [

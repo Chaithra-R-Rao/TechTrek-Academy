@@ -1,6 +1,5 @@
 <nav class="navbar navbar-dark navbar-expand-lg bg-dark px-5">
   <div class="container-fluid">
-    <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img [src]="logo" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
       </a>
@@ -44,6 +43,11 @@
             <mat-icon class="me-2">contact_mail</mat-icon> Contact
           </a>
         </li>
+        <li class="nav-item me-3">
+          <a class="nav-link d-flex align-items-center" routerLink="quiz" routerLinkActive="active">
+            <mat-icon class="me-2">contact_mail</mat-icon> Quiz
+          </a>
+        </li>
         <li class="nav-item" *ngIf="!authService.isAuthenticated()">
           <a class="nav-link d-flex align-items-center" routerLink="login" routerLinkActive="active">
             <mat-icon class="me-2">login</mat-icon> Login
@@ -76,8 +80,7 @@
           </a>
         </li>
        
-      </ul>
-    </div>
+      </ul>  
   </div>
 </nav>
 

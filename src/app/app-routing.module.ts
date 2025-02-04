@@ -10,9 +10,11 @@ import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { FacultyDashboardComponent } from './faculty-dashboard/faculty-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { QuizComponent } from './quiz/quiz.component';
 import { AuthGuard } from './auth.guard';
 import { LoginGuard } from './login.guard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+
 import { RoleGuard } from './role.guard';
 
 const routes: Routes = [
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'popularcourse', component: PopularcourseComponent },
   { path: 'all-courses', component: AllCoursesComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'quiz', component: QuizComponent },
+  
   { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'student' } },
   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'admin' } },
   { path: 'faculty-dashboard', component: FacultyDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'teacher' } },

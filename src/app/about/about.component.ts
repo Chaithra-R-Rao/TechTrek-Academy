@@ -28,6 +28,9 @@ export class AboutComponent  implements OnInit {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            const content = this.el.nativeElement.querySelector('.content');
+            this.renderer.addClass(content, 'animate');
+            observer.unobserve(aboutSection);
             videoElement.play(); // Play the video when the section comes into view
           } else {
             videoElement.pause(); // Pause the video when the section is out of view

@@ -115,6 +115,15 @@
       "password": "qwerty",
       "role": "teacher",
       "phone": ""
+    },
+    {
+      "id": "ee07",
+      "fullName": "Peter",
+      "email": "peter@gmail.com",
+      "dob": "2010-04-12",
+      "password": "123456",
+      "role": "student",
+      "phone": ""
     }
   ],
   "faqs": [
@@ -154,7 +163,7 @@
     {
       "id": "5268",
       "email": "chaithra.r@gmail.com",
-      "courseTitle": "Python for Data Science and Machine Learning",
+      "courseTitle": "Python: Python for Data Science and Machine Learning",
       "enrollmentType": "enrolled"
     },
     {
@@ -178,13 +187,37 @@
     {
       "id": "2aa3",
       "email": "alice@gmail.com",
-      "courseTitle": "Python for Data Science and Machine Learning",
+      "courseTitle": "Python: Python for Data Science and Machine Learning",
       "enrollmentType": "enrolled"
     },
     {
       "id": "85d8",
       "email": "chaithra.r@gmail.com",
-      "courseTitle": "AI and Deep Learning with TensorFlow",
+      "courseTitle": "TensorFlow: AI and Deep Learning with TensorFlow",
+      "enrollmentType": "enrolled"
+    },
+    {
+      "id": "0ca5",
+      "email": "admin@gmail.com",
+      "courseTitle": "Cybersecurity Essentials: Protect Your Digital Assets",
+      "enrollmentType": "enrolled"
+    },
+    {
+      "id": "9814",
+      "email": "admin@gmail.com",
+      "courseTitle": "Cloud Computing with AWS: A Complete Guide",
+      "enrollmentType": "enrolled"
+    },
+    {
+      "id": "e100",
+      "email": "admin@gmail.com",
+      "courseTitle": "Python: Python for Data Science and Machine Learning",
+      "enrollmentType": "enrolled"
+    },
+    {
+      "id": "6a4a",
+      "email": "admin@gmail.com",
+      "courseTitle": "React Mastery: Building Modern Web Applications",
       "enrollmentType": "enrolled"
     }
   ],
@@ -209,7 +242,7 @@
     },
     {
       "id": "3",
-      "title": "Full-Stack Development with MEAN Stack",
+      "title": "MEAN Stack: Full-Stack Development with MEAN Stack",
       "author": "Alex Johnson",
       "rating": 410,
       "points": 110,
@@ -245,7 +278,7 @@
     },
     {
       "id": "7",
-      "title": "Python for Data Science and Machine Learning",
+      "title": "Python: Python for Data Science and Machine Learning",
       "author": "David Wilson",
       "rating": 600,
       "points": 150,
@@ -254,7 +287,7 @@
     },
     {
       "id": "8",
-      "title": "AI and Deep Learning with TensorFlow",
+      "title": "TensorFlow: AI and Deep Learning with TensorFlow",
       "author": "Laura Martinez",
       "rating": 500,
       "points": 125,

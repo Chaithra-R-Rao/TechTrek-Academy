@@ -17,6 +17,8 @@ export class SignupComponent {
   @Input() title: string = 'Sign Up here and start your journey';
   @Input() message: string = 'Sign Up';
 
+  maxDate: string; 
+
   backgroundImage: string = 'assets/images/Img3.jpg'; 
  
   signupForm: FormGroup;
@@ -24,13 +26,25 @@ export class SignupComponent {
     this.signupForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      dob: ['', Validators.required],
+      // dob: ['', Validators.required],
+      dob: ['', [Validators.required, this.validateDateNotFuture.bind(this)]],
       password: ['', [Validators.required,Validators.minLength(6)]],
       role: ['', Validators.required],
       phone: ['',this.phoneValidator]
     });
+
+    const today = new Date();
+    this.maxDate = today.toISOString().split('T')[0];
   }
 
+  validateDateNotFuture(control: any): { [key: string]: boolean } | null {
+    const inputDate = new Date(control.value);
+    const today = new Date();
+    if (control.value && inputDate > today) {
+      return { futureDate: true };
+    }
+    return null;
+  }
   
   phoneValidator(control: AbstractControl): { [key: string]: any } | null {
     const phone = control.value;

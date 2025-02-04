@@ -11,7 +11,7 @@ export class AuthService {
 
   login(email: string): void {
     localStorage.setItem(this.authKey, 'true');
-    localStorage.setItem(this.userEmailKey, email);
+    localStorage.setItem(this.userEmailKey, email.toLowerCase() );
   }
 
   logout(): void {
