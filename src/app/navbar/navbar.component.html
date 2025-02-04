@@ -43,11 +43,7 @@
             <mat-icon class="me-2">contact_mail</mat-icon> Contact
           </a>
         </li>
-        <li class="nav-item me-3">
-          <a class="nav-link d-flex align-items-center" routerLink="quiz" routerLinkActive="active">
-            <mat-icon class="me-2">contact_mail</mat-icon> Quiz
-          </a>
-        </li>
+        
         <li class="nav-item" *ngIf="!authService.isAuthenticated()">
           <a class="nav-link d-flex align-items-center" routerLink="login" routerLinkActive="active">
             <mat-icon class="me-2">login</mat-icon> Login
@@ -62,6 +58,11 @@
         <li class="nav-item" *ngIf="authService.isAuthenticated() && userRole === 'student'">
           <a class="nav-link d-flex align-items-center" routerLink="user-dashboard" routerLinkActive="active">
             <mat-icon class="me-2">dashboard</mat-icon> Profile
+          </a>
+        </li>
+        <li class="nav-item me-3"  *ngIf="authService.isAuthenticated() && userRole === 'student'">
+          <a class="nav-link d-flex align-items-center" routerLink="quiz" routerLinkActive="active">
+            <mat-icon class="me-2">quiz</mat-icon> Quiz
           </a>
         </li>
         <li class="nav-item" *ngIf="authService.isAuthenticated() && userRole === 'teacher'">
