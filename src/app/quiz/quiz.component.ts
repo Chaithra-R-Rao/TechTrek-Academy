@@ -24,7 +24,6 @@ export class QuizComponent implements OnInit {
   loading = false;
   feedback = '';
   showResults = false;
- 
   extractedOption: string="";
 
 
