@@ -37,9 +37,10 @@ import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ChartComponent } from './chart/chart.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { StoreModule } from '@ngrx/store';
 
+import { StoreModule } from '@ngrx/store';
 import { userReducer } from './store/reducers/user.reducer';
+import { authReducer } from './store/reducers/auth.reducer';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { userReducer } from './store/reducers/user.reducer';
 
     MaterialModule,
     HttpClientModule,
+    StoreModule.forRoot({ auth: authReducer }),
     StoreModule.forRoot({ user: userReducer })
 
   ],
