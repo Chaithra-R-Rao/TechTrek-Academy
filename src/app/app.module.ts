@@ -36,11 +36,11 @@ import { RoleGuard } from './role.guard';
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ChartComponent } from './chart/chart.component';
-import { QuizComponent } from './quiz/quiz.component';
+
 
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from './store/reducers/user.reducer';
-import { authReducer } from './store/reducers/auth.reducer';
+import { QuizLearnComponent } from './quizlearn/quizlearn.component';
 
 
 @NgModule({
@@ -65,7 +65,7 @@ import { authReducer } from './store/reducers/auth.reducer';
     AllCoursesComponent,
     AdminDashboardComponent,
     ChartComponent,
-    QuizComponent,
+    QuizLearnComponent,
    
   ],
   imports: [
@@ -76,7 +76,7 @@ import { authReducer } from './store/reducers/auth.reducer';
 
     MaterialModule,
     HttpClientModule,
-    StoreModule.forRoot({ auth: authReducer }),
+
     StoreModule.forRoot({ user: userReducer })
 
   ],

@@ -99,46 +99,6 @@ export class SubscribeComponent  implements OnInit {
       }
     );
   }
-  // subscribe(form: any): void {
-  //   if (form.valid) {
-
-  //       const formData = {
-  //         from_name:"TechTrek Academy",
-  //         to_name: form.value.name,
-  //         to_email: form.value.email,
-  //         message: `Thank you ${form.value.name} for subscribing to our newsletter. You will receive news on the latest courses and offers soon.`,
-  //       };
-
-  //       this.emailService
-  //         .sendEmail(formData)
-  //         .then(() => {
-  //           this.successMessage = `Thank you ${form.value.user_name} for subscribing!`;
-  //           this.errorMessage = null;
-  //           form.reset();
-  //         })
-  //         .catch((error) => {
-  //           this.errorMessage = 'There was an issue sending the email. Please try again.';
-  //           this.successMessage = null;
-  //           console.error('Email sending failed:', error);
-  //         });
-
-  //     this.dataService.postSubscriberData(this.subscriptionData).subscribe(
-  //       (response) => {
-  //         this.message = `Thank you for subscribing with ${this.subscriptionData.email}!`;
-  //         this.resetForm(form);
-
-  //         // Close modal after 2 seconds
-  //         setTimeout(() => {
-  //           this.closeModal();
-  //         }, 2000);
-  //       },
-  //       (error) => {
-  //         console.error('Error posting subscription details:', error);
-  //         alert('An error occurred while subscribing. Please try again later.');
-  //       }
-  //     );
-  //   }
-  // }
 
   closeModal(): void {
     this.isModalOpen = false;
@@ -150,37 +110,3 @@ export class SubscribeComponent  implements OnInit {
   }
  
 }
-
- // subscribeForm!: FormGroup;
-  // isModalOpen: boolean = false;
-  // message: string = '';
-
-  // constructor(private fb: FormBuilder) {
-  //   this.subscribeForm = this.fb.group({
-  //     name: ['', Validators.required],
-  //     email: ['', [Validators.required, Validators.email]],
-  //   });
-  // }
-
-
-  // ngOnInit(): void {
-  //   setTimeout(() => {
-  //     this.isModalOpen = true;
-  //   }, 2500);
-  // }
-
-  // subscribe() {
-   
-  //   const email = this.subscribeForm.get('email')?.value;
-  //   this.message = `Thank you for subscribing with ${email}!`;
-
-  //   setTimeout(() => {
-  //     this.closeModal();
-  //   }, 2000);
-  // }
-
-  // closeModal() {
-  //   this.isModalOpen = false;
-  //   this.subscribeForm.reset();
-  //   this.message = '';
-  // }

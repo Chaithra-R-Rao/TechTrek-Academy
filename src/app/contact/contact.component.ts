@@ -6,20 +6,17 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-contact',
   standalone: false,
-  
+
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent  {
+export class ContactComponent {
 
   backgroundImage: string = 'assets/images/Img3.jpg';
   contactForm: FormGroup;
 
-  // constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private dataService: DataService) {
 
-  
-  constructor(private fb: FormBuilder,private dataService: DataService) {
-   
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -46,10 +43,4 @@ export class ContactComponent  {
       );
     }
   }
-  // onSubmit(): void {
-  //   if (this.contactForm.valid) {
-  //     console.log(this.contactForm.value);
-  //     // Handle form submission
-  //   }
-  // }
 }

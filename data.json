@@ -64,7 +64,7 @@
     },
     {
       "id": "510a",
-      "fullName": "Chaithra R Rao",
+      "fullName": "Chaithra R",
       "email": "chaithra.r@gmail.com",
       "dob": "2002-04-17",
       "password": "Impelsys@123",
@@ -161,12 +161,6 @@
       "enrollmentType": "enrolled"
     },
     {
-      "id": "5268",
-      "email": "chaithra.r@gmail.com",
-      "courseTitle": "Python: Python for Data Science and Machine Learning",
-      "enrollmentType": "enrolled"
-    },
-    {
       "id": "9c29",
       "email": "chaithra.r@gmail.com",
       "courseTitle": "MERN Stack: Build Scalable Full-Stack Applications",
@@ -218,6 +212,18 @@
       "id": "6a4a",
       "email": "admin@gmail.com",
       "courseTitle": "React Mastery: Building Modern Web Applications",
+      "enrollmentType": "enrolled"
+    },
+    {
+      "id": "35e2",
+      "email": "alice@gmail.com",
+      "courseTitle": "Cybersecurity Essentials: Protect Your Digital Assets",
+      "enrollmentType": "enrolled"
+    },
+    {
+      "id": "a73e",
+      "email": "chaithra.r@gmail.com",
+      "courseTitle": "Python: Python for Data Science and Machine Learning",
       "enrollmentType": "enrolled"
     }
   ],

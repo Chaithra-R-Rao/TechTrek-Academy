@@ -25,3 +25,10 @@
         opacity: 1;
     }
 }
+
+.responsive-video {
+    width: 100%;
+    max-width: 400px; /* Limit maximum width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}

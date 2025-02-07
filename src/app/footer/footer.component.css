@@ -28,6 +28,9 @@ footer {
     border-radius: 50%;
     margin-bottom: 15px;
 }
+#img-icon:hover{
+    scale:1.05;
+}
 
 .icon-section h5 {
     font-size: 18px;
@@ -95,6 +98,8 @@ ul li a {
 /* .footer-content */
  ul li a:hover {
     color: limegreen;
+    transform: scale(1.5);
+
 }
 
 .footer-bottom {

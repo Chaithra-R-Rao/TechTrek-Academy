@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../data.service';
 import { ToastrService } from 'ngx-toastr';
-
-
 import { select, Store } from '@ngrx/store';
 import { setUser } from '../store/actions/user.actions';
 import { UserState } from '../store/reducers/user.reducer';
@@ -28,7 +26,7 @@ export class UserDashboardComponent implements OnInit {
    // Store the course ID for deletion
   private readonly userEmailKey = 'userEmail';
 
-  // user$ = this.store.select((state: { user: UserState }) => state.user); 
+
   user$: Observable<UserState>;
   constructor(
     private dataService: DataService,
@@ -98,6 +96,9 @@ export class UserDashboardComponent implements OnInit {
           this.toastr.success('Data updated successfully');
           this.user = updatedData; 
 
+          this.store.dispatch(
+            setUser({ user: { fullName: updatedData.fullName, email: updatedData.email } })
+          );
           this.editMode = false; 
         },
         error: (error) => {
@@ -120,26 +121,6 @@ export class UserDashboardComponent implements OnInit {
       }
     });
   }
-
-  // removeEnrollment(courseId: string): void {
-  //   this.dataService.deleteEnrolledCourse(courseId).subscribe({
-  //     next: () => {
-  //       this.enrolledCourses = this.enrolledCourses.filter(
-  //         (course) => course.id !== courseId
-  //       );
-  //       this.toastr.success('Course deleted successfully');
-  //       this.closeDialog();
-  //     },
-  //     error: (error) => {
-  //       console.error('Error removing enrollment:', error);
-  //       this.errorMessage = 'Error removing enrollment. Please try again later.';
-  //       this.closeDialog();
-  //     }
-  //   });
-  // }
-
-
-
 
    // Open the dialog and store the course ID
    openDialog(courseId: string): void {

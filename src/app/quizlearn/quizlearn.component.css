@@ -1,0 +1,104 @@
+.quiz-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  h3{
+    color:rgb(29, 168, 24);
+  }
+  
+  .score {
+    font-size: 18px;
+    font-weight: bold;
+    color:rgb(29, 168, 24);
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 5px 0;
+  }
+  
+  .correct-answer {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .wrong-answer {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .gradient-btn {
+    background: linear-gradient(to bottom, #d6cc04, #29bd04);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .gradient-btn:active {
+    transform: translateY(0);
+  }
+  
+  .gradient-btn:disabled {
+    opacity:0.6;
+    cursor: not-allowed; /* Indicate the button is not clickable */
+    box-shadow: none; /* Remove shadow for a flat look */
+  }
+
+
+  .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .dialog-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .dialog-box h2 {
+    margin: 0 0 10px;
+    color:rgb(29, 168, 24);
+  }
+  .dialog-box button {
+    margin-top: 10px;
+  }

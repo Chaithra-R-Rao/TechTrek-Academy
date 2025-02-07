@@ -27,15 +27,6 @@ a {
     font-weight: bold;
 }
 
-
-/* 
-
-.form-control {
-    border-radius: 4px;
-    padding: 10px;
-} */
-
-
 input {
     padding: 10px;
     border:  #777676;
@@ -56,15 +47,6 @@ mat-form-field {
     padding: 0;
     margin-bottom: 0;
 }
-
-/* Style matInput to match other inputs */
-/* mat-form-field .mat-input-element {
-    border-radius: 10px;
-    padding: 10px;
-    transition: border-color 0.3s ease;
-    color: #333;
-    background-color: transparent;
-} */
 
 /* Focused input styles */
 mat-form-field .mat-input-element:focus {

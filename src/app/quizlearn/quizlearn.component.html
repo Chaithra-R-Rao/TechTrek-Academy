@@ -1,0 +1,59 @@
+<div class="quiz-container mt-5 mb-5">
+  <h2 class="text-center mb-4">AI-Powered Quiz</h2>
+
+  <div class="form-group">
+    <label for="topic">Select Course:</label>
+    <select id="topic" [(ngModel)]="selectedCourse">
+      <option value="" disabled selected>Select a course</option>
+      <option *ngFor="let course of courses" [value]="course.title">{{ course.title }}</option>
+    </select>
+  </div>
+
+  <div class="form-group text-center">
+    <button (click)="generateQuiz()" [disabled]="loading" class="gradient-btn">Generate Quiz</button>
+  </div>
+
+  <div *ngIf="loading">
+  <p >Generating quiz...</p>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+  </div>
+
+
+  <p *ngIf="feedback">{{ feedback }}</p>
+
+  <div *ngIf="quizQuestions.length > 0">
+
+    <h3 class="text-center">Quiz Questions</h3>
+
+
+    <div *ngFor="let question of quizQuestions; let i = index">
+      <p><strong>{{ i + 1 }}. {{ question.question }}</strong></p>
+      <ul>
+        <li *ngFor="let option of question.options">
+          <label [ngClass]="{
+              'correct-answer': showResults && option === question.answer,
+              'wrong-answer': showResults && option === userAnswers[i] && option !== question.answer
+            }">
+            <input type="radio" [name]="'question' + i" [(ngModel)]="userAnswers[i]" [value]="option" />
+            {{ option }}
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="form-group text-center">
+      <button (click)="submitQuiz()" data-bs-toggle="tooltip" data-bs-title="Answer all questions to submit"
+        [disabled]="!allQuestionsAnswered()" class="gradient-btn">Submit Quiz</button>
+
+    </div>
+  </div>
+
+  <div class="dialog-overlay" *ngIf="showDialog">
+    <div class="dialog-box">
+      <h2>Quiz Results</h2>
+      <p>Your Score: {{ score }} / {{ quizQuestions.length }}</p>
+      <button mat-raised-button color="primary" (click)="closeDialog()">OK</button>
+    </div>
+  </div>
+</div>

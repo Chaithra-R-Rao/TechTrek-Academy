@@ -80,10 +80,6 @@ export class AllCoursesComponent implements OnInit {
   }
 
 
-
-
- 
-
   fetchCourses(): void {
     this.courseService.getCourses().subscribe(
       (data) => {
