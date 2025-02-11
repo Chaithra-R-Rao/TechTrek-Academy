@@ -47,7 +47,7 @@ export class EmailService {
             const templateParams = {
               to_email: email,
               from_name: 'TechTrek Academy',
-              reset_link: `http://localhost:4200/change-password?token=${resetToken}`
+              reset_link: `https://chaithra-r-rao.github.io/TechTrek-Academy/change-password?token=${resetToken}`
             };
 
             return from(emailjs.send('service_j34toeg', 'template_pq92fxg', templateParams));
