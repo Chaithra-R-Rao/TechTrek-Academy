@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,AbstractControl  } from '@angular/forms';
 import { DataService } from '../data.service';
 import { ToastrService } from 'ngx-toastr';
 import { select, Store } from '@ngrx/store';
@@ -74,12 +74,29 @@ export class UserDashboardComponent implements OnInit {
   initEditForm(): void {
     // Initialize the form with the user's current details
     this.editForm = this.fb.group({
-      fullName: [this.user?.fullName, Validators.required],
+      fullName: [this.user?.fullName, [Validators.required,this.nameValidator]],
       email: [this.user?.email, [Validators.required, Validators.email]],
-      dob: [this.user?.dob, Validators.required]
+      dob: [this.user?.dob, [Validators.required, this.validateDateNotFuture.bind(this)]]
     });
   }
 
+   nameValidator(control: AbstractControl): { [key: string]: any } | null {
+      const name = control.value;
+      if (name && /\d/.test(name)) { // Check if name contains any number
+        return { invalidName: true };
+      }
+      return null;
+    }
+  
+    validateDateNotFuture(control: any): { [key: string]: boolean } | null {
+      const inputDate = new Date(control.value);
+      const today = new Date();
+      if (control.value && inputDate > today) {
+        return { futureDate: true };
+      }
+      return null;
+    }
+    
   toggleEditMode(): void {
     this.editMode = !this.editMode;
     if (!this.editMode) {

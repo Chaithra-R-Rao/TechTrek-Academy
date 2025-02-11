@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 
-import { catchError, map, retryWhen, delay, take } from 'rxjs/operators';
+import { catchError, switchMap, retryWhen, delay, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +59,36 @@ export class DataService {
       })
     );
   }
+
+ 
+  changePassword(email: string, newPassword: string): Observable<any> {
+    const url = `http://localhost:3000/user-data?email=${email}`; // Fetch user by email
+    console.log(url);
+  
+    return this.http.get<any[]>(url).pipe(
+      switchMap((users) => {
+        if (users.length === 0) {
+          throw new Error('User not found');
+        }
+  
+        const user = users[0]; // Assuming email is unique
+        console.log(user);
+  
+        const updatedUser = { ...user, password: newPassword };
+        console.log(updatedUser);
+  
+        return this.http.put(`http://localhost:3000/user-data/${updatedUser.id}`, updatedUser);
+      }),
+      catchError((error) => {
+        console.error('Error changing password:', error);
+        return throwError(() => error);
+      })
+    );
+  }
+  
+  
+
+
   private apiUrl2 = 'http://localhost:3000/user-contact'; // Adjust endpoint as needed
 
   postUserContact(contactDetails: any): Observable<any> {

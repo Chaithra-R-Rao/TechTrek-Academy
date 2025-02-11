@@ -1,6 +1,5 @@
 .main-container {
     background-color:#e4e7ec;
-   /* height: 100vh; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,7 +22,6 @@ h2 {
 
 input,
 select {
-    /* width: 100%; */
     padding: 10px;
     margin-top: 15px;
     border: 1px solid #777676;
@@ -50,28 +48,3 @@ input:focus,select:focus{
     font-weight: bold;
     cursor: pointer;
 }
-
-.gradient-btn {
-    background: linear-gradient(to bottom, #d6cc04, #29bd04);
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 20px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.gradient-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-
-.gradient-btn:disabled {
-    opacity:0.6;
-    cursor: not-allowed; /* Indicate the button is not clickable */
-    box-shadow: none; /* Remove shadow for a flat look */
-  }

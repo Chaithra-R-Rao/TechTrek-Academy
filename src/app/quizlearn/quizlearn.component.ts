@@ -15,7 +15,6 @@ interface Course {
   description: string;
 }
 
-
 @Component({
   selector: 'app-quizlearn',
   standalone: false,
@@ -48,7 +47,11 @@ export class QuizLearnComponent implements OnInit {
       next: (courses) => {
         this.courses = courses; // Store courses for dropdown
       },
-      error: (err) => console.error('Error fetching courses:', err),
+      error: (err) => {
+        console.error('Error fetching courses:', err);
+        this.toastr.error('Failed to load courses. Please refresh and try again.', 'Error');
+      },
+      // error: (err) => console.error('Error fetching courses:', err),
     });
   }
 
@@ -65,13 +68,21 @@ export class QuizLearnComponent implements OnInit {
     
 
     this.aiService.getCourseQuizzes(this.selectedCourse).then(({ quizzes }) => { 
+      if (quizzes.length === 0) {
+        this.toastr.error('No quizzes were generated. Try again.', 'Error');
+        this.feedback = 'No quizzes available for the selected course.';
+      } else {
       this.quizQuestions = quizzes;
       this.userAnswers = new Array(quizzes.length).fill('');
       this.feedback = 'Quiz generated successfully!';
+      }
       this.loading = false;
    
       this.showResults = false;
     }).catch(() => {
+
+      this.toastr.error('Error generating quiz. Please try again.', 'Error');
+      
       this.feedback = 'Error fetching quiz questions. Please try again later.';
       this.loading = false;
 

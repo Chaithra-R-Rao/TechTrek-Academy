@@ -18,15 +18,12 @@ export class SignupComponent {
   @Input() message: string = 'Sign Up';
 
   maxDate: string; 
-
-  backgroundImage: string = 'assets/images/Img3.jpg'; 
  
   signupForm: FormGroup;
   constructor(private fb: FormBuilder, private userService: DataService, private toastr: ToastrService) {
     this.signupForm = this.fb.group({
-      fullName: ['', Validators.required],
+      fullName: ['', [Validators.required,this.nameValidator]],
       email: ['', [Validators.required, Validators.email]],
-      // dob: ['', Validators.required],
       dob: ['', [Validators.required, this.validateDateNotFuture.bind(this)]],
       password: ['', [Validators.required,Validators.minLength(6)]],
       role: ['', Validators.required],
@@ -35,6 +32,14 @@ export class SignupComponent {
 
     const today = new Date();
     this.maxDate = today.toISOString().split('T')[0];
+  }
+
+  nameValidator(control: AbstractControl): { [key: string]: any } | null {
+    const name = control.value;
+    if (name && /\d/.test(name)) { // Check if name contains any number
+      return { invalidName: true };
+    }
+    return null;
   }
 
   validateDateNotFuture(control: any): { [key: string]: boolean } | null {
@@ -65,7 +70,6 @@ export class SignupComponent {
         if (response) {
           console.log('User added successfully:', response);
           this.toastr.success('User added successfully');
-          // alert('User added successfully');
           this.signupForm.reset();
         }
       });

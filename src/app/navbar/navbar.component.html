@@ -49,6 +49,11 @@
             <mat-icon class="me-2">login</mat-icon> Login
           </a>
         </li>
+        <!-- <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link d-flex align-items-center" routerLink="change-password" routerLinkActive="active">
+            <mat-icon class="me-2">login</mat-icon> Login
+          </a>
+        </li> -->
         <li class="nav-item" *ngIf="!authService.isAuthenticated()">
           <a class="nav-link d-flex align-items-center" routerLink="signup" routerLinkActive="active">
             <mat-icon class="me-2">person_add</mat-icon> Signup

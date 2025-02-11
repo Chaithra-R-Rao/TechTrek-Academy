@@ -38,16 +38,34 @@
         <mat-form-field fxFlex="30" appearance="outline">
           <mat-label>Full Name</mat-label>
           <input matInput formControlName="fullName" required />
+          <mat-error *ngIf="editForm.get('fullName')?.hasError('required')">
+            Full Name is required.
+          </mat-error>
+          <mat-error *ngIf="editForm.get('fullName')?.hasError('invalidName')">
+            Full Name should not contain numbers.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="30" appearance="outline">
           <mat-label>Email</mat-label>
           <input matInput formControlName="email" type="email" required />
+          <mat-error *ngIf="editForm.get('email')?.hasError('required')">
+            Email is required.
+          </mat-error>
+          <mat-error *ngIf="editForm.get('email')?.hasError('email')">
+            Please enter a valid email address.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="30" appearance="outline">
           <mat-label>Date of Birth</mat-label>
           <input matInput formControlName="dob" type="date" required />
+          <mat-error *ngIf="editForm.get('dob')?.hasError('required')">
+            Date of Birth is required.
+          </mat-error>
+          <mat-error *ngIf="editForm.get('dob')?.hasError('futureDate')">
+            Date of Birth cannot be in the future.
+          </mat-error>
         </mat-form-field>
       </div>
 

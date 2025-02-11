@@ -56,26 +56,6 @@
     text-align: center;
   }
   
-  .gradient-btn {
-    background: linear-gradient(to bottom, #d6cc04, #29bd04);
-    border: none;
-    border-radius: 10px;
-    color: white;
-    padding: 7px 10px;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  .gradient-btn:active {
-    transform: translateY(0);
-  }
-  
-  .gradient-btn:disabled {
-    opacity:0.6;
-    cursor: not-allowed; /* Indicate the button is not clickable */
-    box-shadow: none; /* Remove shadow for a flat look */
-  }
-
 
   .dialog-overlay {
     position: fixed;

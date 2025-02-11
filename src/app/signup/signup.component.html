@@ -1,5 +1,4 @@
 <div class="main-container p-5">
-  <!-- [style.backgroundImage]="'url(' + backgroundImage + ')'" -->
 
   <div class="container rounded mb-3 mt-3">
     <h2 class="text-center text-white">{{title}}</h2>
@@ -9,10 +8,13 @@
         <div class="col-md-6 form-group">
           <label for="fullName" class="text-white">Full Name: <span style="color: red;">*</span></label>
           <input id="fullName" class="form-control" formControlName="fullName" type="text" />
-          <div
-            *ngIf="signupForm.get('fullName')?.invalid && (signupForm.get('fullName')?.dirty || signupForm.get('fullName')?.touched)"
-            class="alert text-danger">
-            Full Name is required.
+          <div *ngIf="signupForm.get('fullName')?.invalid && (signupForm.get('fullName')?.dirty || signupForm.get('fullName')?.touched)" class="alert text-danger">
+            <div *ngIf="signupForm.get('fullName')?.errors?.['required']">
+              Full Name is required.
+            </div>
+            <div *ngIf="signupForm.get('fullName')?.errors?.['invalidName']">
+              Full Name should not contain numbers.
+            </div>
           </div>
         </div>
         <div class="col-md-6 form-group">

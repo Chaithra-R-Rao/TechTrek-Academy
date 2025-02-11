@@ -31,10 +31,6 @@ export class AIService {
         throw new Error('No courses available');
       }
 
-      // Strictly follow this format only:
-      // [Answer]:"your answer"
-      // [Quizzes]: JSON array of quizzes with questions and options
-      // You should provide quizzes related to the courses.
       const contextPrompt = `Given these available courses:
       ${courses.map((c: any) => `- ${c.title}: ${c.description}`).join('\n')}
       
@@ -68,7 +64,7 @@ export class AIService {
       const result = await this.model.generateContent(contextPrompt);
       const responseText = result.response.text();
       console.log('AI Response:', responseText);
-      
+
       const quizzes = this.extractQuizzes(responseText);
       console.log('Parsed Quizzes:', quizzes);
 
@@ -93,7 +89,7 @@ export class AIService {
       if (quizzesMatch && quizzesMatch[1]) {
         // console.log('Quizzes:', JSON.stringify(quizzesMatch));
         const quizzesJson = quizzesMatch[1].trim();
-        
+
         if (quizzesJson.startsWith('[') && quizzesJson.endsWith(']')) {
           const parsedQuizzes = JSON.parse(quizzesJson);
 

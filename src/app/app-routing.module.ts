@@ -14,6 +14,8 @@ import { AuthGuard } from './auth.guard';
 import { LoginGuard } from './login.guard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { QuizLearnComponent } from './quizlearn/quizlearn.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 import { RoleGuard } from './role.guard';
 
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+  { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [LoginGuard] },
+
   { path: 'signup', component: SignupComponent, canActivate: [LoginGuard]  },
   { path: 'popularcourse', component: PopularcourseComponent },
   { path: 'all-courses', component: AllCoursesComponent },
@@ -32,6 +36,8 @@ const routes: Routes = [
   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'admin' } },
   { path: 'faculty-dashboard', component: FacultyDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'teacher' } },
   { path: 'unauthorized', component: UnauthorizedComponent },
+  { path: 'change-password', component: ChangePasswordComponent }, // Add this line
+
 ];
 
 const routerOptions: ExtraOptions = {

@@ -39,10 +39,15 @@ import { ChartComponent } from './chart/chart.component';
 
 
 import { StoreModule } from '@ngrx/store';
+
+import { forgotPasswordReducer } from './store/reducers/forgot-password.reducer';
+
 import { userReducer } from './store/reducers/user.reducer';
 import { QuizLearnComponent } from './quizlearn/quizlearn.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
-
+import { EmailService } from './email.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +71,8 @@ import { QuizLearnComponent } from './quizlearn/quizlearn.component';
     AdminDashboardComponent,
     ChartComponent,
     QuizLearnComponent,
+    ForgotPasswordComponent,
+    ChangePasswordComponent,
    
   ],
   imports: [
@@ -77,13 +84,16 @@ import { QuizLearnComponent } from './quizlearn/quizlearn.component';
     MaterialModule,
     HttpClientModule,
 
-    StoreModule.forRoot({ user: userReducer })
+  
+    StoreModule.forRoot({ forgotPassword: forgotPasswordReducer }),
+    StoreModule.forRoot({ user: userReducer }),
 
   ],
   providers: [
     provideAnimationsAsync(),
     FaqService,DataService,
     AuthGuard, AuthService,RoleGuard,
+    EmailService
   ],
   bootstrap: [AppComponent]
 })

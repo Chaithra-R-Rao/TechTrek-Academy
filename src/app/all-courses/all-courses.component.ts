@@ -107,7 +107,3 @@ export class AllCoursesComponent implements OnInit {
 }
 
 
-// enrolledCourses: any[] = [];
-
-
-

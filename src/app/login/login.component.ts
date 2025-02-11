@@ -27,6 +27,7 @@ export class LoginComponent {
   ) {}
 
   onSubmit(form: NgForm) {
+    
     if (form.valid) {
       const { email, password } = form.value;
   

@@ -95,3 +95,10 @@ mat-card-content {
 }
 
 
+.image-preview {
+  width: 200px;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
